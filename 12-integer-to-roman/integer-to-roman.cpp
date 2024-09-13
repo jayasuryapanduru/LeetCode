@@ -1,24 +1,14 @@
 class Solution {
 public:
     string intToRoman(int num) {
-       const vector<pair<int, string>> valueSymbols{
-        {1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"}, {100, "C"},
-        {90, "XC"},  {50, "L"},   {40, "XL"}, {10, "X"},   {9, "IX"},
-        {5, "V"},    {4, "IV"},   {1, "I"}};
-        string ans;
-        for(const auto &[val,sym]:valueSymbols)
-        {
-            if (num==0)
-            {
-                break;
-            }
-            while(num>=val)
-            {
-                num-=val;
-                ans+=sym;
-            }
-        }
-
-        return ans;
+       const vector<string> M{"", "M", "MM", "MMM"};
+    const vector<string> C{"",  "C",  "CC",  "CCC",  "CD",
+                           "D", "DC", "DCC", "DCCC", "CM"};
+    const vector<string> X{"",  "X",  "XX",  "XXX",  "XL",
+                           "L", "LX", "LXX", "LXXX", "XC"};
+    const vector<string> I{"",  "I",  "II",  "III",  "IV",
+                           "V", "VI", "VII", "VIII", "IX"};
+    return M[num / 1000] + C[num % 1000 / 100] + X[num % 100 / 10] +
+           I[num % 10];
     }
 };
