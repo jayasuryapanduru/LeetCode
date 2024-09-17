@@ -1,16 +1,11 @@
 class Solution:
     def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
       
-        # Split the sentences into words
-        words_s1 = s1.split()
-        words_s2 = s2.split()
+        l = s1.split()
+        r = s2.split()
+        combined = l+r
+        w_count = Counter(combined)
+        res = [word for word in w_count if w_count[word]==1]
         
-        # Combine all words into one list
-        all_words = words_s1 + words_s2
-        
-        # Count the frequency of each word
-        word_count = Counter(all_words)
-        
-        # Find words that occur exactly once
-        return [word for word in word_count if word_count[word] == 1]
+        return res
     
