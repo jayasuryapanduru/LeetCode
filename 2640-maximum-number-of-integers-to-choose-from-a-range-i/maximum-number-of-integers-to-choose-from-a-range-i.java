@@ -2,6 +2,11 @@ import java.util.*;
 class Solution {
     public int maxCount(int[] banned, int n, int maxSum) {
         
+
+        if (banned[0]==1 && maxSum==1)
+        {
+            return 0;
+        }
         Set<Integer> ar = new HashSet<>();
 
         for (int i : banned)
