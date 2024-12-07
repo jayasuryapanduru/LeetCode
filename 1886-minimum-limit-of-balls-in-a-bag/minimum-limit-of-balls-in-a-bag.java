@@ -9,7 +9,11 @@ class Solution {
         {
             return 1;
         }
-        int l=0,r = Arrays.stream(nums).max().getAsInt();
+        int l=0,r = 1; // Arrays.stream(nums).max().getAsInt();
+        for (int i : nums)
+        {
+            r = Math.max(r,i);
+        }
         while(l<r)
         {
             int mid = (l+r)/2, count=0;
