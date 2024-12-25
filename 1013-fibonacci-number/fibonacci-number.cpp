@@ -6,7 +6,20 @@ public:
         {
             return n;
         }
-        return fib(n-1)+fib(n-2);
+        int a=0,b=1;
+        for (int i=2;i<=n;i++)
+        {
+            int t = b;
+            b = a+b;
+            a=t;
+        }
+
+        return b;
+        // if (n<=1)
+        // {
+        //     return n;
+        // }
+        // return fib(n-1)+fib(n-2);
     }
 
 };
