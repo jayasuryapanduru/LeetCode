@@ -15,6 +15,9 @@ public:
         }
 
         return b;
+        
+    // Using recursion
+
         // if (n<=1)
         // {
         //     return n;
