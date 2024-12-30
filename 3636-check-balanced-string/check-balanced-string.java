@@ -7,14 +7,9 @@ class Solution {
         for (int i=0;i<num.length();i++)
         {
             int d = Character.getNumericValue(num.charAt(i));
-            if (i%2==0)
-            {
-                e+=d;
-            }
-            else 
-            {
-                o+=d;
-            }
+            e += (i%2==0)?d:0;
+            o += (i%2==1)?d:0;
+            
         }
         return o==e;
         
