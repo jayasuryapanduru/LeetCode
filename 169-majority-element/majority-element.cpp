@@ -1,22 +1,23 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        
-        unordered_map<int,int>maj;
+        int n = nums.size() / 2;
+unordered_map<int, int> fre;
 
-        for (auto i:nums)
-        {
-            maj[i]++;
-        }
-        int a = 0;
-        for (auto i:maj)
-        {
-            if (i.second>(nums.size())/2)
-            {
-                return i.first;
-            }
-        }
-        return a;
+// Count frequencies of each element
+for (int i : nums) {
+    fre[i]++;
+}
+
+// Find the majority element
+for (auto j : fre) {
+    if (j.second > n) { // Majority condition
+        return j.first; // Return the majority element
+    }
+}
+
+// If no majority element exists, handle the case (optional based on problem constraints)
+return -1; // Assuming -1 indicates no majority element
 
     }
 };
