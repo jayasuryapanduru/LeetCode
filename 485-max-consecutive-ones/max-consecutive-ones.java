@@ -6,17 +6,17 @@ class Solution {
         
         for (int i=0;i<n;i++)
         {
-           if (nums[i]==1)
+           if (nums[i]==0)
            {
-                ones++;
-                 max = Math.max(max,ones);
+               max = Math.max(max,ones);
+                ones=0;
            }
            else 
            {
-                ones=0;
+                ones++;
            }
-       
+        
         }
-        return max;
+        return Math.max(max,ones);
     }
 }
