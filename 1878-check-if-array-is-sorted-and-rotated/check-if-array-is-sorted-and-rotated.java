@@ -1,19 +1,21 @@
 class Solution {
-    boolean isSorted (int []arr)
-    {
-       final int n = arr.length;
-        int r=0;
-        for (int i=0;i<arr.length;i++)
+
+    
+    public boolean check(int[] nums) {
+
+            int length = nums.length;
+        int rCount =0;
+        for (int i=0;i<length;i++)
         {
-            if (arr[i]>arr[(i+1)%n] && ++r > 1)
+            if (nums[i]<=nums[(i+1)%length])
             {
-                return false;
+                continue;
+            }
+            else{
+                rCount++;
             }
         }
-        return true;
-    }
-    public boolean check(int[] nums) {
-        
-        return isSorted(nums);
+       return rCount>1 ? false:true;
+
     }
 }
